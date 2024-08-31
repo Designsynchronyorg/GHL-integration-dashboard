@@ -1,16 +1,25 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import { Metadata } from "next";
 import GuestLayout from "@/components/Layouts/GuestLayout";
+import { useRouter } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Sign In Page",
-  description: "This is the sign in Page for the Dashboard",
-};
+// export const metadata: Metadata = {
+//   title: "Sign In Page",
+//   description: "This is the sign in Page for the Dashboard",
+// };
 
 const SignIn: React.FC = () => {
+  const router = useRouter();
+  
+  const signInHandler = () => {
+    router.push('/dashboard');
+  }
+  
   return (
     <GuestLayout>
       {/* <Breadcrumb pageName="Sign In" /> */}
@@ -173,7 +182,7 @@ const SignIn: React.FC = () => {
                 Sign In
               </h2>
 
-              <form>
+              <form action={signInHandler}>
                 <div className="mb-4">
                   <label className="mb-2.5 block font-medium text-black dark:text-white">
                     Email

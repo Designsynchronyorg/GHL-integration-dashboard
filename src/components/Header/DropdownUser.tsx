@@ -9,7 +9,7 @@ const DropdownUser = () => {
   const router = useRouter()
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const logout = () => {
-    router.push('/auth/signup');
+    router.push('/');
   }
 
   return (

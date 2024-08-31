@@ -2,6 +2,7 @@
 import React, { useState, ReactNode } from "react";
 import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function DefaultLayout({
   children,
@@ -29,6 +30,9 @@ export default function DefaultLayout({
               {children}
             </div>
           </main>
+
+          {/* Footer */}
+          <Footer />
           {/* <!-- ===== Main Content End ===== --> */}
         </div>
         {/* <!-- ===== Content Area End ===== --> */}
