@@ -20,7 +20,7 @@ export default function DefaultLayout({
 
         {/* <!-- ===== Content Area Start ===== --> */}
 
-        <div className="relative flex min-h-screen flex-1 flex-col justify-between lg:ml-24">
+        <div className="relative flex min-h-screen flex-1 flex-col justify-between lg:ml-20">
           <div className="relative flex flex-1 flex-col">
             {/* <!-- ===== Header Start ===== --> */}
             <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
