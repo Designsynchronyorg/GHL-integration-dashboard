@@ -15,7 +15,7 @@ interface SidebarProps {
 
 const menuGroups = [
   {
-    // name: "MENU",
+    name: "MENU",
     menuItems: [
       {
         icon: (
@@ -47,7 +47,7 @@ const menuGroups = [
         ),
         label: "Dashboard",
         route: "/",
-        // children: [{ label: "eCommerce", route: "/" }],
+        children: [{ label: "eCommerce", route: "/" }],
       },
       // {
       //   icon: (
