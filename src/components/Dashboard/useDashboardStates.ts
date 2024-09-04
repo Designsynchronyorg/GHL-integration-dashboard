@@ -92,6 +92,12 @@ const useDashboardStates = () => {
         return parseFloat(rate.toFixed(3));
     };
 
+    // Calculate conversion
+    const calculateCv = (numerator: number, denomenator: number): number => {
+        const cv = numerator / denomenator;
+        return parseFloat(cv.toFixed(3));
+    };
+
     // Update levelUp states based on rate calculations
     const updateLevelUpStates = () => {
         setLevelUpBudget(budgetRate > 0);
@@ -109,12 +115,14 @@ const useDashboardStates = () => {
 
     // Calculate rates for all data points
     useEffect(() => {
-        //    setVisits(5)
-        // Calculate the differences between this week and last week's data
-        // const visitRate = ((visits - lastWeekVisits) / lastWeekVisits) * 100;
-        // const leadRate = ((leads - lastWeekLeads) / lastWeekLeads) * 100;
-        // const conversionRate = ((conversion - lastWeekConversion) / lastWeekConversion) * 100;
-        // const demoRate = ((demos - lastWeekDemos) / lastWeekDemos) * 100;
+        // Calculate conversions
+        setLeadsVisitsCv(calculateCv(leads, visits));
+        setDemoBookedLeadsCv(calculateCv(demoBooked, leads));
+        setShowUpsDemoBookedCv(calculateCv(showUps, demoBooked));
+        setSaleShowUpCv(calculateCv(sale, showUps));
+        setCac(calculateCv(budget, sale));
+        setRoas(calculateCv(totalRevenue, budget));
+
         // Update rate and levelUp states when data changes
         setBudgetRate(calculateRate(previousBudget, budget));
         setBudgetRateString(`${budgetRate}%`);
