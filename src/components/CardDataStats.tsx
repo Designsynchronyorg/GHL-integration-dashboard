@@ -2,7 +2,8 @@ import React, { ReactNode } from "react";
 
 interface CardDataStatsProps {
   title: string;
-  total: string;
+  subtitle?: string;
+  total: string | number;
   rate: string;
   levelUp?: boolean;
   levelDown?: boolean;
@@ -11,6 +12,7 @@ interface CardDataStatsProps {
 
 const CardDataStats: React.FC<CardDataStatsProps> = ({
   title,
+  subtitle=undefined,
   total,
   rate,
   levelUp,
@@ -29,6 +31,7 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
             {total}
           </h4>
           <span className="text-sm font-medium">{title}</span>
+          {subtitle && <span className="text-sm text-muted ml-2">({subtitle})</span>}
         </div>
 
         <span
