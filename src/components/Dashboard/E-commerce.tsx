@@ -10,6 +10,7 @@ import EyeIcon from "../Icons/EyeIcon";
 import CartIcon from "../Icons/CartIcon";
 import ShoppingBag from "../Icons/ShoppingBag";
 import useDashboardStates from './useDashboardStates';
+import useAnimatedNumber from "../AnimatedNumber/useAnimatedNumber";
 
 const MapOne = dynamic(() => import("@/components/Maps/MapOne"), {
   ssr: false,
@@ -21,13 +22,7 @@ const ChartThree = dynamic(() => import("@/components/Charts/ChartThree"), {
 
 const ECommerce: React.FC = () => {
   const dashboardStates = useDashboardStates();
-
-  // Calculate rates for all data points
-  useEffect(() => {
-    setTimeout(() => {
-      dashboardStates.setBudget(1000)
-    }, 5000)
-  })
+  useAnimatedNumber(dashboardStates.budget, dashboardStates.setBudget, 2000);
 
   return (
     <>
