@@ -33,9 +33,10 @@ const ECommerce: React.FC = () => {
           },
         });
         const data = await response.json();
+
         // Assuming visits is a state object with a setValue method
         visits.setValue(data.report[0].views);
-        visits.setPreviousValue(6);
+        visits.setPreviousValue(9);
       } catch (error) {
         console.error('Error:', error);
       }

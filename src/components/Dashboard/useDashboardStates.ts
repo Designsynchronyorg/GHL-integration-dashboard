@@ -60,7 +60,7 @@ const useDashboardStates = () => {
         demoBookedLeadsCv.setValue(demoBooked.value / leads.value || 0);
         showUpsDemoBookedCv.setValue(showUps.value / demoBooked.value || 0);
         saleShowUpCv.setValue(sale.value / showUps.value || 0);
-        cac.setValue(budget.value / saleShowUpCv.value || 0);
+        cac.setValue(budget.value / sale.value || 0);
         roas.setValue(totalRevenue.value / budget.value || 0);
     }, [
         budget.value, visits.value, leads.value,
@@ -73,7 +73,7 @@ const useDashboardStates = () => {
         { title: 'Visits', total: visits.value, rate: visits.rateString, levelUp: visits.levelUp, subtitle: '' },
         { title: 'Leads', total: leads.value, rate: leads.rateString, levelUp: leads.levelUp, subtitle: '' },
         { title: 'Conversion', subtitle: 'Leads/Visits', total: leadsVisitsCv.percentValue, rate: leadsVisitsCv.rateString, levelUp: leadsVisitsCv.levelUp },
-        { title: 'Demo Booked', subtitle: '', total: demoBookedLeadsCv.percentValue, rate: demoBookedLeadsCv.rateString, levelUp: demoBookedLeadsCv.levelUp },
+        { title: 'Demo Booked', subtitle: '', total: demoBookedLeadsCv.value, rate: demoBookedLeadsCv.rateString, levelUp: demoBookedLeadsCv.levelUp },
         { title: 'Show Ups', subtitle: 'Show Ups/Demo Booked', total: showUpsDemoBookedCv.percentValue, rate: showUpsDemoBookedCv.rateString, levelUp: showUpsDemoBookedCv.levelUp },
         { title: 'Sale', subtitle: 'Sale/Show Ups', total: saleShowUpCv.percentValue, rate: saleShowUpCv.rateString, levelUp: saleShowUpCv.levelUp },
         { title: 'Total Revenue', total: totalRevenue.percentValue, rate: totalRevenue.rateString, levelUp: totalRevenue.levelUp, subtitle: '' },
